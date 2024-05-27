@@ -92,3 +92,21 @@ void fillPw()
       }
    }
 }
+
+// this version reproduces the infinite loop bug
+/* void fillPw()
+{
+   TGeoPhysicalNode *node;
+   TGeoParallelWorld *pw = gGeoManager->GetParallelWorld();
+   for (int l=0; l < 1; l++) { // layer
+      for (int k=0; k < 1; k++) {  // half barrel
+         for (int j=0; j < 6; j++) { // stave
+            for (int i=4; i<5; i++) { // chip
+               node = gGeoManager->MakePhysicalNode(Form("/cave/barrel_1/ITSV_2/ITSUWrapVol0_1/ITSULayer%d_1/ITSUHalfBarrel%d_%d/ITSUStave%d_%d/ITSUChip%d_%d", l, l, k, l, j, l, i));
+               if (pw) pw->AddNode(Form("/cave/barrel_1/ITSV_2/ITSUWrapVol0_1/ITSULayer%d_1/ITSUHalfBarrel%d_%d/ITSUStave%d_%d/ITSUChip%d_%d", l, l, k, l, j, l, i));
+            }
+         }
+      }
+   }
+}
+*/
